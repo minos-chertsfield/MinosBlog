@@ -1,0 +1,228 @@
+@import '../../styles/variables.less';
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+  .sidebar-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease;
+    
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+    
+    .ant-card-head {
+      border-bottom: 1px solid #f0f0f0;
+      
+      .ant-card-head-title {
+        color: @primary-color;
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+    
+    .ant-card-body {
+      padding: 16px;
+    }
+  }
+  
+  // 搜索框样式
+  .sidebar-search {
+    .ant-input {
+      border-radius: 20px 0px 0px 20px;
+      border-color: #d9d9d9;
+      
+      &:focus,
+      &:hover {
+        border-color: @primary-color;
+        box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+      }
+    }
+    
+    .ant-btn {
+      border-radius: 0 20px 20px 0;
+      border-color: @primary-color;
+      background-color: @primary-color;
+      
+      &:hover {
+        background-color: lighten(@primary-color, 10%);
+        border-color: lighten(@primary-color, 10%);
+      }
+    }
+  }
+  
+  // 分类树样式
+  .sidebar-category-tree {
+    .ant-tree-treenode {
+      padding: 4px 0;
+      
+      .ant-tree-node-content-wrapper {
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: fade(@primary-color, 10%);
+        }
+        
+        &.ant-tree-node-selected {
+          background-color: fade(@primary-color, 20%);
+          color: @primary-color;
+        }
+      }
+      
+      .ant-tree-title {
+        font-size: 14px;
+        color: #666;
+        
+        &:hover {
+          color: @primary-color;
+        }
+      }
+      
+      .ant-tree-switcher {
+        color: @primary-color;
+        
+        &:hover {
+          color: lighten(@primary-color, 15%);
+        }
+      }
+      
+      .ant-tree-iconEle {
+        color: @accent-color;
+        margin-right: 6px;
+      }
+    }
+    
+    // 不同层级的缩进和样式
+    .ant-tree-treenode-switcher-open,
+    .ant-tree-treenode-switcher-close {
+      .ant-tree-title {
+        font-weight: 500;
+      }
+    }
+    
+    // 子节点样式
+    .ant-tree-child-tree {
+      .ant-tree-title {
+        font-size: 13px;
+        color: #888;
+      }
+      
+      // 三级节点样式
+      .ant-tree-child-tree {
+        .ant-tree-title {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+    }
+  }
+  
+  // 标签云样式
+  .sidebar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    
+    .sidebar-tag {
+      margin: 0;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1px solid @primary-color;
+      background-color: fade(@primary-color, 10%);
+      color: @primary-color;
+      
+      &:hover {
+        background-color: @primary-color;
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  
+  // 列表样式
+  .sidebar-list {
+    .sidebar-list-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background-color 0.3s ease;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      &:hover {
+        background-color: #fafafa;
+        border-radius: 4px;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+      
+      .article-title {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 4px;
+        line-height: 1.4;
+        cursor: pointer;
+        
+        &:hover {
+          color: @primary-color;
+        }
+      }
+      
+      .article-date {
+        font-size: 12px;
+        color: #999;
+      }
+      
+      .sidebar-link {
+        color: #666;
+        text-decoration: none;
+        font-size: 14px;
+        
+        &:hover {
+          color: @primary-color;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  
+  // 响应式设计
+  @media (max-width: 768px) {
+    gap: 12px;
+    
+    .sidebar-card {
+      .ant-card-body {
+        padding: 12px;
+      }
+      
+      .ant-card-head-title {
+        font-size: 15px;
+      }
+    }
+    
+    .sidebar-tags {
+      gap: 6px;
+      
+      .sidebar-tag {
+        font-size: 11px;
+        padding: 3px 6px;
+      }
+    }
+    
+    .sidebar-category-tree {
+      .ant-tree-title {
+        font-size: 13px;
+      }
+    }
+  }
+}

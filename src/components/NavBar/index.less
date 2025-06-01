@@ -1,0 +1,32 @@
+@import '../../styles/variables.less';
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    padding: 0 24px;
+    background-color: @primary-color !important;
+}
+
+.nav-logo {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 32px;
+    cursor: pointer;
+    color: @accent-color;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.nav-menu {
+    flex: 1;
+    background-color: transparent;
+    span {
+        color: white;
+    }
+}
+
+.nav-search {
+    width: 200px;
+    margin-right: 24px;
+}
+
